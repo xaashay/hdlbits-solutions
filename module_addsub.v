@@ -9,7 +9,7 @@ module top_module(
   wire [15:0] sum1, sum2;
   wire [31:0] b_xor;
     
-  assign b_xor = sub ? ~b : b;
+  assign b_xor = b ^ {32{sub}};
   assign sum = {sum2, sum1};
     
   add16 instance1(.a(a[15:0]), .b(b_xor[15:0]), .cin(sub), .cout(cout1), .sum(sum1));
